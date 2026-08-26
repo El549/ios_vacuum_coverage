@@ -2,7 +2,7 @@
 
 ## 当前结论
 
-状态：**Blocked on external owners**。GitHub `main` 已初始化并通过远端 clean clone 自检；Codemagic clone/job、Apple 身份与实物矩阵仍必须由对应外部 owner 提供真实证据后才能改为 Passed。
+状态：**Blocked on external owners**。GitHub `main` 已初始化并通过远端 clean clone 自检，Codemagic app 已连接并识别 YAML；首次 job、Apple 身份与实物矩阵仍必须由对应外部 owner 提供真实证据后才能改为 Passed。
 
 ## 仓库基线
 
@@ -21,13 +21,14 @@
 | 字段 | 记录 |
 |---|---|
 | Accountable owner | Codemagic team admin |
-| App ID | 未连接 |
+| App ID | `6a8f35ff25a250a3a9686cb3`（Personal Account） |
+| Repository / YAML discovery | PASS：`main` 根目录 `codemagic.yaml` 已载入，2026-08-27 |
 | Workflow ID | `ios-environment-gate` |
 | Build ID / URL | 未运行 |
 | Commit SHA | 未运行 |
 | Started / finished UTC | 未运行 |
 | Result | NOT RUN |
-| Cost authorization | 已确认，2026-08-27：仅限个人账户剩余免费额度、单次最多 15 分钟；禁止付费、自动触发、签名和发布。账户类型/余额尚未验证，验证前不得启动 |
+| Cost authorization | 已确认并验证，2026-08-27：Personal Account 免费 macOS 使用量 `0 / 500`，页面显示 `Enable subscription`（未启用付费订阅）；仅允许运行一次最多 15 分钟任务，禁止付费、自动触发、签名和发布 |
 | Signing / publishing | 必须保持 `disabled` / `none` |
 
 通过时附上 `build/evidence/environment.json` 的非敏感值，并确认：

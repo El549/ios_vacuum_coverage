@@ -8,9 +8,9 @@
 |---|---|---|---|---|
 | GitHub `main` 可 checkout | Repository admin | PASS：远端 `HEAD` 指向 `refs/heads/main`；仓库专用 Deploy Key 非 force 推送及 clean clone 自检均于 2026-08-27 通过 | 保持 Deploy Key 最小权限；后续协作启用分支保护 | 已解除 |
 | 分支保护 | Repository admin | 未配置/未验证 | `main` 禁止 force push/删除；后续有测试后要求评审与状态检查 | 协作合并 |
-| Codemagic 仓库连接 | Codemagic team admin | 未连接/无法从本节点验证 | Codemagic app 能 clone `main` 并识别 YAML workflow | CI |
+| Codemagic 仓库连接 | Codemagic account owner | PASS：Personal Account app `6a8f35ff25a250a3a9686cb3` 已连接仓库，并载入 `main` 根目录 YAML | 保持仓库连接；首次 job 验证真实 clone 与 workflow | 已解除 |
 | Codemagic 首次 job | Codemagic team admin | 未运行 | `ios-environment-gate` 在远端 commit 上成功，证据填写完整；确认未发布、未签名 | PLAY-41 完成 |
-| Codemagic 成本 | Workspace owner | 已确认边界：仅限个人账户剩余免费额度、单次最多 15 分钟；禁止付费；账户类型/余额尚未验证 | 启动前确认是个人账户、剩余免费分钟不少于 15 且未启用付费超额；Team 构建不满足本次授权 | 任何云端 job |
+| Codemagic 成本 | Workspace owner | PASS（本次 job）：Personal Account 免费 macOS 使用量 `0 / 500`，未启用付费订阅；只授权一次最多 15 分钟的无签名任务 | 仅按已授权 workflow 手动启动一次；出现订阅/付费提示立即停止 | 已解除本次 job |
 | Apple membership/协议 | Apple Account Holder | 未验证 | 会员有效且最新协议已接受 | 真机签名/发布 |
 | Bundle ID | Apple Account Holder/Admin | 候选 `com.el549.vacuumcoverage` | explicit App ID 已确认/注册；冲突则先评审替代值 | 真机工程配置 |
 | Team ID / 本地签名 | Apple Admin + iOS lead | 未提供 | Team ID 只进入本地/受控 secret；开发者最小权限可签测试设备 | 真机实验 |
