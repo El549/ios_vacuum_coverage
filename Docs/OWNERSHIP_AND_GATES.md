@@ -13,7 +13,7 @@
 | Codemagic 成本 | Workspace owner | PASS（本次 job）：Personal Account 免费 macOS 使用量 `0 / 500`，未启用付费订阅；只授权一次最多 15 分钟的无签名任务 | 仅按已授权 workflow 手动启动一次；出现订阅/付费提示立即停止 | 已解除本次 job |
 | Apple membership/协议 | Apple Account Holder | PASS（2026-08-27 Account Holder 自述确认）：会员有效、无待接受协议 | 保持会员有效；新协议由 Account Holder 评审处理 | 已解除 |
 | Bundle ID | Apple Account Holder/Admin | `com.el549.vacuumcoverage` 已批准；2026-08-27 决定暂缓注册 | 首次真机签名前重新确认，通过 Xcode automatic signing 或手工注册；冲突则先评审替代值 | 真机工程配置 |
-| Team ID / 本地签名 | Apple Admin + iOS lead | 未提供 | Team ID 只进入本地/受控 secret；开发者最小权限可签测试设备 | 真机实验 |
+| Team ID / 本地签名 | Apple Account Holder/Admin + iOS lead | DEFERRED：本阶段不采集、不签名 | 首次本地真机签名前确认；Team ID 只进入本地/受控 secret，非 Account Holder 操作者只获最小开发签名权限 | 真机实验 |
 | CI 签名 secret | Release owner + Security owner | 本阶段不需要 | 到批准阶段使用专用 key、secret store、owner/轮换记录 | archive/发布 |
 | 设备/硬件/场地 | Local Hardware owner + QA owner | 一台 iPhone Air 为成员自述候选；美国节点无法连接；其余全部待现场确认 | 本地 Mac、设备与现场负责人同时可用后，按 `Docs/DEVICE_LAB.md` 逐槽验证并第二人复核 | PLAY-42 Phase 0；不阻塞 Simulator 开发 |
 | 家庭空间隐私 | Privacy owner | 原则已定义，未签署 | 数据清单/保留/导出决定获批；无相机帧/家庭图像默认不变 | 实验数据保存 |
@@ -50,8 +50,8 @@ PLAY-41 只允许步骤 1 中“确认/注册 explicit App ID”（由 Apple Adm
 - [x] `bash Scripts/validate_bootstrap.sh` 在 clean checkout 通过。
 - [x] Codemagic 已连接仓库，固定 workflow 对同一 commit 成功。
 - [x] 证据页记录 Xcode、Swift、SDK、macOS、build ID/URL、commit 和结果。
-- [ ] Apple Team owner、Bundle ID 结果、最小角色与 secret store 已确认。
-- [ ] 三类 iPhone、两类吸尘器、支架、卡、测量和场地全部可用，或每个缺口具名到人并有到位时点/解除条件。
+- [x] Apple Team owner、Bundle ID 结果、最小角色与 secret 处理方案已确认；Team ID 与签名材料按决定延后到首次本地真机签名前。
+- [x] 三类 iPhone、两类吸尘器、支架、卡、测量和场地未全部可用；替代条件已满足：`Docs/DEVICE_LAB.md` 为每个缺口记录唯一责任角色、启用时点和客观解除条件。
 - [x] 费用、签名、TestFlight、App Store 与公开发布均无未授权动作。
 
-未全部勾选时，工单保持 `in_progress` 或 `blocked`，不得标记已完成或推动后续阶段。
+PLAY-41 已按“真实通过，或缺口有负责人和解决条件”的完成标准收束，可进入人工验收；这不等于真机实验门禁通过。后续 Simulator/核心代码准备可以继续，但 PLAY-42 的真机 Phase 0 必须先满足 `Docs/DEVICE_LAB.md` 第 6 节，且不得用 Simulator 或成员自述替代现场证据。

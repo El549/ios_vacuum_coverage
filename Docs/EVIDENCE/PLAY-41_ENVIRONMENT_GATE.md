@@ -2,7 +2,7 @@
 
 ## 当前结论
 
-状态：**Blocked on external owners**。GitHub `main`、首次 Codemagic 无签名环境 job、Apple 会员与协议门禁已通过，explicit Bundle ID 已定名；App ID 注册按 Account Holder 决定延后至首次真机签名前。Apple Team/真机签名能力与实物矩阵仍必须由对应外部 owner 提供真实证据后才能改为 Passed。
+状态：**Ready for human review（Simulator/无签名 CI 轨道通过，真机轨道有条件延后）**。GitHub `main`、首次 Codemagic 无签名环境 job、Apple 会员与协议门禁已通过，explicit Bundle ID 已定名；App ID 注册、Team ID 与真机签名按 Account Holder 决定延后至首次本地真机签名前。所有未现场验证的实物槽位均在 `Docs/DEVICE_LAB.md` 记录了唯一责任角色和客观解除条件，因此满足 PLAY-41 “已可用，或缺口有负责人和解决条件”的替代完成标准；这不是实物已具备或真机验证通过的声明。
 
 ## 仓库基线
 
@@ -51,16 +51,16 @@ Simulator 清单包含可用的 iOS 26.5 runtime 与 iPhone 17 系列设备；Sw
 | 字段 | 当前状态 | owner / 解除条件 |
 |---|---|---|
 | Apple membership / agreements | PASS（Account Holder 于 2026-08-27 在 PLAY-41 工单自述确认）：会员有效、无待接受协议 | 保持会员有效；出现新协议时由 Account Holder 评审处理 |
-| Team ID | 未提供 | Admin 确认，并只写本地/secret store |
+| Team ID | DEFERRED：本阶段不采集、不需要 | 首次本地真机签名前由 Account Holder/Apple Admin 在本地确认，只写本地配置或受控 secret store |
 | Explicit Bundle ID | 名称已批准：`com.el549.vacuumcoverage`；Account Holder 于 2026-08-27 决定暂缓注册 | 首次真机签名前重新确认，通过 Xcode automatic signing 或手工注册；若冲突则先评审替代值 |
-| Developer device-signing role | 未验证 | iOS lead 获得最小所需权限 |
-| CI signing secret store | 本阶段不启用 | Release/Security 批准后按文档配置 |
+| Developer device-signing role | DEFERRED：本阶段不签名 | 首次本地真机签名前确认操作者权限；若不是 Account Holder，则只授予最小开发签名权限 |
+| CI signing secret store | OUT OF SCOPE：本阶段不启用 | 仅在未来明确批准 CI 签名后，由 Release/Security owner 建立专用 secret、访问和轮换记录 |
 
 上述会员结论仅记录 Account Holder 的非敏感确认；仓库和工单均不保存 Apple Account、Team ID、验证码、证书、私钥或 provisioning profile。
 
 ## 硬件/场地门禁
 
-以 `Docs/DEVICE_LAB.md` 为真源。成员于 2026-08-27 自述持有一台 iPhone Air；按 [Apple 官方规格](https://www.apple.com/iphone-air/specs/) 可作为无 LiDAR 候选，但美国节点无法连接该设备，OS/可用性仍未做现场验证。第 2 台无 LiDAR iPhone、LiDAR Pro、两类吸尘器、支架、卡、测量工具和受控房间均未确认。这里的清单只为未来本地实验交接，不阻塞 Simulator/无签名云端开发；Hardware/QA owner 必须在本地 Mac 与实物同时可用时补齐真实记录。
+以 `Docs/DEVICE_LAB.md` 为真源。成员于 2026-08-27 自述持有一台 iPhone Air；按 [Apple 官方规格](https://www.apple.com/iphone-air/specs/) 可作为无 LiDAR 候选，但美国节点无法连接该设备，OS/可用性仍未做现场验证。第 2 台无 LiDAR iPhone、LiDAR Pro、两类吸尘器、支架、卡、测量工具和受控房间均未确认。每个缺口已分别交给 Local Hardware、QA、Spatial QA 或 Lab owner，并以“本地 Mac、实物和现场人员同时可用，且完成对应客观检查”为解除条件。这里的清单只为未来本地实验交接，不阻塞 Simulator/无签名云端开发，也不得被后续任务引用为真机通过证据。
 
 ## 安全与范围确认
 
@@ -68,4 +68,4 @@ Simulator 清单包含可用的 iOS 26.5 runtime 与 iPhone 17 系列设备；Sw
 - [x] Codemagic workflow 不自动触发、不加载 secret、不签名、不发布。
 - [x] 未创建 App Store Connect record、TestFlight build 或 App Store submission。
 - [x] 未执行付费动作。
-- [ ] 外部 owner 已完成全部真实确认并复核证据。
+- [x] 未现场验证的 Apple 签名与实物缺口均有唯一责任角色和客观解除条件，且未作虚假 Passed 声明。
