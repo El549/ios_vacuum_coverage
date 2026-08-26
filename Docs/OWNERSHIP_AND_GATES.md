@@ -12,7 +12,7 @@
 | Codemagic 首次 job | Codemagic account owner | PASS：build `6a8f37ab1f98ea6f9e4aa137` 在 commit `7ed4c29…` 上 49 秒完成；artifact、工具链摘要和无签名状态均已核对 | 保留受控原始日志/artifact；后续重跑必须重新授权 | 已解除 |
 | Codemagic 成本 | Workspace owner | PASS（本次 job）：Personal Account 免费 macOS 使用量 `0 / 500`，未启用付费订阅；只授权一次最多 15 分钟的无签名任务 | 仅按已授权 workflow 手动启动一次；出现订阅/付费提示立即停止 | 已解除本次 job |
 | Apple membership/协议 | Apple Account Holder | PASS（2026-08-27 Account Holder 自述确认）：会员有效、无待接受协议 | 保持会员有效；新协议由 Account Holder 评审处理 | 已解除 |
-| Bundle ID | Apple Account Holder/Admin | 名称已批准：`com.el549.vacuumcoverage`（2026-08-27 Account Holder 确认）；尚未注册 | 注册 explicit App ID 并确认成功；冲突则先评审替代值 | 真机工程配置 |
+| Bundle ID | Apple Account Holder/Admin | `com.el549.vacuumcoverage` 已批准；2026-08-27 决定暂缓注册 | 首次真机签名前重新确认，通过 Xcode automatic signing 或手工注册；冲突则先评审替代值 | 真机工程配置 |
 | Team ID / 本地签名 | Apple Admin + iOS lead | 未提供 | Team ID 只进入本地/受控 secret；开发者最小权限可签测试设备 | 真机实验 |
 | CI 签名 secret | Release owner + Security owner | 本阶段不需要 | 到批准阶段使用专用 key、secret store、owner/轮换记录 | archive/发布 |
 | 设备/硬件/场地 | Hardware owner + QA owner | 全部待现场确认 | `Docs/DEVICE_LAB.md` 每个槽位有真实记录且第二人复核 | PLAY-42 Phase 0 |
