@@ -10,7 +10,7 @@
 | 分支保护 | Repository admin | 未配置/未验证 | `main` 禁止 force push/删除；后续有测试后要求评审与状态检查 | 协作合并 |
 | Codemagic 仓库连接 | Codemagic team admin | 未连接/无法从本节点验证 | Codemagic app 能 clone `main` 并识别 YAML workflow | CI |
 | Codemagic 首次 job | Codemagic team admin | 未运行 | `ios-environment-gate` 在远端 commit 上成功，证据填写完整；确认未发布、未签名 | PLAY-41 完成 |
-| Codemagic 成本 | Workspace owner | 未确认 | 启动前确认可用免费额度或书面批准单次额度；默认不得运行 | 任何云端 job |
+| Codemagic 成本 | Workspace owner | 已确认边界：仅限个人账户剩余免费额度、单次最多 15 分钟；禁止付费；账户类型/余额尚未验证 | 启动前确认是个人账户、剩余免费分钟不少于 15 且未启用付费超额；Team 构建不满足本次授权 | 任何云端 job |
 | Apple membership/协议 | Apple Account Holder | 未验证 | 会员有效且最新协议已接受 | 真机签名/发布 |
 | Bundle ID | Apple Account Holder/Admin | 候选 `com.el549.vacuumcoverage` | explicit App ID 已确认/注册；冲突则先评审替代值 | 真机工程配置 |
 | Team ID / 本地签名 | Apple Admin + iOS lead | 未提供 | Team ID 只进入本地/受控 secret；开发者最小权限可签测试设备 | 真机实验 |

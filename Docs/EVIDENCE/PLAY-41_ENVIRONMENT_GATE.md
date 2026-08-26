@@ -27,7 +27,7 @@
 | Commit SHA | 未运行 |
 | Started / finished UTC | 未运行 |
 | Result | NOT RUN |
-| Cost authorization | 未确认；不得启动 |
+| Cost authorization | 已确认，2026-08-27：仅限个人账户剩余免费额度、单次最多 15 分钟；禁止付费、自动触发、签名和发布。账户类型/余额尚未验证，验证前不得启动 |
 | Signing / publishing | 必须保持 `disabled` / `none` |
 
 通过时附上 `build/evidence/environment.json` 的非敏感值，并确认：
