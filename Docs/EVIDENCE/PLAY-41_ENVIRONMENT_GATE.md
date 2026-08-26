@@ -2,17 +2,18 @@
 
 ## 当前结论
 
-状态：**Awaiting external confirmation**。仓库工件可在 Linux 本地验证，但 GitHub 远端初始化、Codemagic clone/job、Apple 身份与实物矩阵必须由对应外部 owner 提供真实证据后才能改为 Passed。
+状态：**Blocked on external owners**。仓库工件已在 Linux 本地验证，但 GitHub 远端初始化、Codemagic clone/job、Apple 身份与实物矩阵必须由对应外部 owner 提供真实证据后才能改为 Passed。
 
 ## 仓库基线
 
 | 字段 | 记录 |
 |---|---|
 | Remote | `https://github.com/El549/ios_vacuum_coverage.git` |
-| Default branch | `main`（待远端 HEAD 验证） |
-| Bootstrap commit | 待实际 push 后填写完整 SHA |
+| Default branch | 本地 `main`；远端仍无 refs/HEAD |
+| Bootstrap commit | `d637eed7fd261b78c051a593c07c4586bcb9a716`（本地 root commit） |
 | Clean clone verifier | Repository admin / independent reviewer |
-| `validate_bootstrap.sh` | 本地结果待提交 SHA 固定后填写 |
+| `validate_bootstrap.sh` | PASS，2026-08-27，Linux 5.15.0-142-generic x86_64 |
+| Remote write probe | BLOCKED：`git push --dry-run` 无可用 GitHub HTTPS credential；未执行真实 push |
 
 ## Codemagic 首次 job
 

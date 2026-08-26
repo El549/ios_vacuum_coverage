@@ -6,7 +6,7 @@
 
 | 门禁 | Accountable owner | 当前状态 | 解除条件 | 阻断范围 |
 |---|---|---|---|---|
-| GitHub `main` 可 checkout | Repository admin | 本地 bootstrap 已准备；远端待真实验证 | 远端 `HEAD` 指向 `refs/heads/main`；匿名 clean clone + 自检成功 | 全部后续工作 |
+| GitHub `main` 可 checkout | Repository admin | 本地 root commit `d637eed7fd261b78c051a593c07c4586bcb9a716` 已验证；本任务无 GitHub 写凭据，远端仍为空 | 管理员从交付 bundle 推送 `main`；远端 `HEAD` 指向 `refs/heads/main`；匿名 clean clone + 自检成功 | 全部后续工作 |
 | 分支保护 | Repository admin | 未配置/未验证 | `main` 禁止 force push/删除；后续有测试后要求评审与状态检查 | 协作合并 |
 | Codemagic 仓库连接 | Codemagic team admin | 未连接/无法从本节点验证 | Codemagic app 能 clone `main` 并识别 YAML workflow | CI |
 | Codemagic 首次 job | Codemagic team admin | 未运行 | `ios-environment-gate` 在远端 commit 上成功，证据填写完整；确认未发布、未签名 | PLAY-41 完成 |
