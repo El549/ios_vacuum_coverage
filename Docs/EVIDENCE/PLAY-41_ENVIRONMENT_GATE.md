@@ -2,7 +2,7 @@
 
 ## 当前结论
 
-状态：**Blocked on external owners**。GitHub `main` 已初始化并通过远端 clean clone 自检，Codemagic app 已连接并识别 YAML；首次 job、Apple 身份与实物矩阵仍必须由对应外部 owner 提供真实证据后才能改为 Passed。
+状态：**Blocked on external owners**。GitHub `main` 与首次 Codemagic 无签名环境 job 已通过；Apple 身份与实物矩阵仍必须由对应外部 owner 提供真实证据后才能改为 Passed。
 
 ## 仓库基线
 
@@ -24,12 +24,14 @@
 | App ID | `6a8f35ff25a250a3a9686cb3`（Personal Account） |
 | Repository / YAML discovery | PASS：`main` 根目录 `codemagic.yaml` 已载入，2026-08-27 |
 | Workflow ID | `ios-environment-gate` |
-| Build ID / URL | 未运行 |
-| Commit SHA | 未运行 |
-| Started / finished UTC | 未运行 |
-| Result | NOT RUN |
+| Build ID / URL | [`6a8f37ab1f98ea6f9e4aa137`](https://codemagic.io/app/6a8f35ff25a250a3a9686cb3/build/6a8f37ab1f98ea6f9e4aa137) |
+| Commit SHA | `7ed4c29f1861ede0f95e6d4f32c1da91a5203562` |
+| Started / finished UTC | 2026-08-26 19:00–19:01 UTC（UI 显示总时长 49 秒；精确时间待原始 build metadata） |
+| Machine | Mac mini M2 |
+| Result | PASS：状态 `finished`；source fetch、repository baseline、unsigned Simulator probe 与 cleanup 均通过 |
+| Artifact | `ios_vacuum_coverage_1_artifacts.zip`，14.36 KB；待下载核对 `build/evidence/**` |
 | Cost authorization | 已确认并验证，2026-08-27：Personal Account 免费 macOS 使用量 `0 / 500`，页面显示 `Enable subscription`（未启用付费订阅）；仅允许运行一次最多 15 分钟任务，禁止付费、自动触发、签名和发布 |
-| Signing / publishing | 必须保持 `disabled` / `none` |
+| Signing / publishing | PASS：workflow 未配置 signing 或 publishing；未授权任何发布目标 |
 
 通过时附上 `build/evidence/environment.json` 的非敏感值，并确认：
 
