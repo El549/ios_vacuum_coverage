@@ -1,0 +1,20 @@
+workflows:
+  ios-environment-gate:
+    name: iOS environment gate (unsigned, manual)
+    instance_type: mac_mini_m2
+    max_build_duration: 15
+    environment:
+      xcode: 26.6
+      vars:
+        REQUIRED_XCODE_VERSION: "26.6"
+        REQUIRED_XCODE_BUILD: "17F113"
+        REQUIRED_IOS_SDK_VERSION: "26.5"
+        REQUIRED_SWIFT_VERSION_PREFIX: "6.3"
+        IOS_SIMULATOR_DEPLOYMENT_TARGET: "18.0"
+    scripts:
+      - name: Validate repository baseline
+        script: bash Scripts/validate_bootstrap.sh
+      - name: Compile unsigned iOS Simulator probe
+        script: bash Scripts/ci_environment_check.sh
+    artifacts:
+      - build/evidence/**

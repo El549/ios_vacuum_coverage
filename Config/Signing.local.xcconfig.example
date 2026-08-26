@@ -1,0 +1,7 @@
+// Copy to Config/Signing.local.xcconfig and keep the copy untracked.
+// The Bundle ID is the repository baseline; an Apple Account Holder/Admin must
+// confirm that the explicit App ID is available before the first device build.
+
+PRODUCT_BUNDLE_IDENTIFIER = com.el549.vacuumcoverage
+DEVELOPMENT_TEAM = REPLACE_WITH_10_CHARACTER_TEAM_ID
+CODE_SIGN_STYLE = Automatic
