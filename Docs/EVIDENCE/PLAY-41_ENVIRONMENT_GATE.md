@@ -2,7 +2,7 @@
 
 ## 当前结论
 
-状态：**Blocked on external owners**。GitHub `main`、首次 Codemagic 无签名环境 job、Apple 会员与协议门禁已通过；Apple Team/Bundle ID/真机签名能力与实物矩阵仍必须由对应外部 owner 提供真实证据后才能改为 Passed。
+状态：**Blocked on external owners**。GitHub `main`、首次 Codemagic 无签名环境 job、Apple 会员与协议门禁已通过，explicit Bundle ID 名称也已获批；Apple Team、Bundle ID 注册、真机签名能力与实物矩阵仍必须由对应外部 owner 提供真实证据后才能改为 Passed。
 
 ## 仓库基线
 
@@ -52,7 +52,7 @@ Simulator 清单包含可用的 iOS 26.5 runtime 与 iPhone 17 系列设备；Sw
 |---|---|---|
 | Apple membership / agreements | PASS（Account Holder 于 2026-08-27 在 PLAY-41 工单自述确认）：会员有效、无待接受协议 | 保持会员有效；出现新协议时由 Account Holder 评审处理 |
 | Team ID | 未提供 | Admin 确认，并只写本地/secret store |
-| Explicit Bundle ID | 候选 `com.el549.vacuumcoverage` | Admin 确认并注册或先评审替代值 |
+| Explicit Bundle ID | 名称已批准：`com.el549.vacuumcoverage`（Account Holder 于 2026-08-27 在 PLAY-41 工单确认）；尚未注册 | Account Holder 注册 explicit App ID 并确认成功；若冲突则先评审替代值 |
 | Developer device-signing role | 未验证 | iOS lead 获得最小所需权限 |
 | CI signing secret store | 本阶段不启用 | Release/Security 批准后按文档配置 |
 
