@@ -4,13 +4,13 @@
 
 设备与场地由 Hardware/QA owner 现场确认。仓库只记录不敏感的 lab ID、公开机型、OS、能力与可用状态；不得记录 Apple Account、手机号、序列号、UDID、家庭地址、家庭照片或原始相机视频。
 
-当前 Multica 节点无法观察实物，所以下表全部是**必须由现场负责人确认的开放门禁**，不是“已具备”的声明。解除时把每行改为实际 lab ID/机型/OS/检查日期，并由第二人复核。
+当前美国 Multica 节点无法连接或观察实物，所以下表只用于未来本地实验的交接，不代表远程代理能调用设备，也不是“已具备”的声明。设备盘点不阻塞 Simulator/无签名云端开发；真机、LiDAR、精度和温控结论必须等本地 Mac、设备和现场负责人同时可用时再验证。解除时把每行改为实际 lab ID/机型/OS/检查日期，并由第二人复核。
 
 ## 2. iPhone 矩阵
 
 | 槽位 | 最低要求 | 当前状态 | 责任人 | 解除条件 |
 |---|---|---|---|---|
-| NL-LOW | 1 台无 LiDAR、支持 ARWorldTracking、iOS 18+ 的最低候选（推荐从 iPhone 12 候选开始） | 未确认 | Hardware owner | 记录 lab ID、机型、OS、可用存储、电池健康/供电、相机与陀螺仪正常 |
+| NL-LOW | 1 台无 LiDAR、支持 ARWorldTracking、iOS 18+ 的最低候选（推荐从 iPhone 12 候选开始） | 候选：成员于 2026-08-27 自述持有 iPhone Air；Apple 规格列出 iOS 26 且 Sensors 未列 LiDAR Scanner，但本节点未做实物验证 | Local Hardware/QA owner | 本地 Mac 可连接设备后，记录非敏感 lab ID、OS、可用存储、电池健康/供电、相机与陀螺仪正常；不得记录序列号/UDID |
 | NL-MID | 第 2 台无 LiDAR、中档/常见机型，不能与 NL-LOW 为同一设备 | 未确认 | Hardware owner | 同上；确认可独立执行 30 分钟实验 |
 | LIDAR-PRO | 1 台带 LiDAR Scanner 的 Pro 机型、iOS 18+ | 未确认 | Hardware owner | 同上；现场 capability probe 确认 RoomPlan/depth/mesh 各自布尔值 |
 

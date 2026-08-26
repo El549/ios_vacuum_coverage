@@ -15,7 +15,7 @@
 | Bundle ID | Apple Account Holder/Admin | `com.el549.vacuumcoverage` 已批准；2026-08-27 决定暂缓注册 | 首次真机签名前重新确认，通过 Xcode automatic signing 或手工注册；冲突则先评审替代值 | 真机工程配置 |
 | Team ID / 本地签名 | Apple Admin + iOS lead | 未提供 | Team ID 只进入本地/受控 secret；开发者最小权限可签测试设备 | 真机实验 |
 | CI 签名 secret | Release owner + Security owner | 本阶段不需要 | 到批准阶段使用专用 key、secret store、owner/轮换记录 | archive/发布 |
-| 设备/硬件/场地 | Hardware owner + QA owner | 全部待现场确认 | `Docs/DEVICE_LAB.md` 每个槽位有真实记录且第二人复核 | PLAY-42 Phase 0 |
+| 设备/硬件/场地 | Local Hardware owner + QA owner | 一台 iPhone Air 为成员自述候选；美国节点无法连接；其余全部待现场确认 | 本地 Mac、设备与现场负责人同时可用后，按 `Docs/DEVICE_LAB.md` 逐槽验证并第二人复核 | PLAY-42 Phase 0；不阻塞 Simulator 开发 |
 | 家庭空间隐私 | Privacy owner | 原则已定义，未签署 | 数据清单/保留/导出决定获批；无相机帧/家庭图像默认不变 | 实验数据保存 |
 
 ## 2. 费用确认点

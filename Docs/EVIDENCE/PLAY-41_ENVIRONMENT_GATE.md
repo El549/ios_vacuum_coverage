@@ -60,7 +60,7 @@ Simulator 清单包含可用的 iOS 26.5 runtime 与 iPhone 17 系列设备；Sw
 
 ## 硬件/场地门禁
 
-以 `Docs/DEVICE_LAB.md` 为真源。当前两台无 LiDAR iPhone、一台 LiDAR Pro、两类吸尘器、支架、卡、测量工具和受控房间均未被现场确认。Hardware/QA owner 必须逐行补齐实际记录或给出具名责任人、到位时点与解除条件。
+以 `Docs/DEVICE_LAB.md` 为真源。成员于 2026-08-27 自述持有一台 iPhone Air；按 [Apple 官方规格](https://www.apple.com/iphone-air/specs/) 可作为无 LiDAR 候选，但美国节点无法连接该设备，OS/可用性仍未做现场验证。第 2 台无 LiDAR iPhone、LiDAR Pro、两类吸尘器、支架、卡、测量工具和受控房间均未确认。这里的清单只为未来本地实验交接，不阻塞 Simulator/无签名云端开发；Hardware/QA owner 必须在本地 Mac 与实物同时可用时补齐真实记录。
 
 ## 安全与范围确认
 
