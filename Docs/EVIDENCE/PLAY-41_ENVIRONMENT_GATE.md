@@ -20,7 +20,7 @@
 
 | 字段 | 记录 |
 |---|---|
-| Accountable owner | Codemagic team admin |
+| Accountable owner | Codemagic account owner |
 | App ID | `6a8f35ff25a250a3a9686cb3`（Personal Account） |
 | Repository / YAML discovery | PASS：`main` 根目录 `codemagic.yaml` 已载入，2026-08-27 |
 | Workflow ID | `ios-environment-gate` |
@@ -29,21 +29,22 @@
 | Started / finished UTC | 2026-08-26 19:00–19:01 UTC（UI 显示总时长 49 秒；精确时间待原始 build metadata） |
 | Machine | Mac mini M2 |
 | Result | PASS：状态 `finished`；source fetch、repository baseline、unsigned Simulator probe 与 cleanup 均通过 |
-| Artifact | `ios_vacuum_coverage_1_artifacts.zip`，14.36 KB；待下载核对 `build/evidence/**` |
+| Artifact | PASS：`ios_vacuum_coverage_1_artifacts.zip`，14,702 bytes，SHA-256 `ae2a29ea6f132e1c283d64b42a00906a1d66f9f5c24c13ad99364456ad1e2e9e`；CRC、路径与 secret 扫描通过 |
 | Cost authorization | 已确认并验证，2026-08-27：Personal Account 免费 macOS 使用量 `0 / 500`，页面显示 `Enable subscription`（未启用付费订阅）；仅允许运行一次最多 15 分钟任务，禁止付费、自动触发、签名和发布 |
 | Signing / publishing | PASS：workflow 未配置 signing 或 publishing；未授权任何发布目标 |
 
-通过时附上 `build/evidence/environment.json` 的非敏感值，并确认：
+附件中的 `build/evidence/environment.json`（SHA-256 `aed27bfaf2945481861052d004772dece0106c6b4f4cce496f472253844e0b81`）及配套文本证据确认：
 
 ```text
 Xcode 26.6 (17F113)
-Swift 6.3
+macOS 26.5.1
+Swift 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
 iOS Simulator SDK/runtime 26.5
 iOS deployment target 18.0
 CODE SIGNING disabled
 ```
 
-完整原始日志保留在 Codemagic 受控界面，不提交仓库。仓库证据只记录版本、ID、commit、时间、结果与失败码。
+Simulator 清单包含可用的 iOS 26.5 runtime 与 iPhone 17 系列设备；Swift module 产物证明 `arm64-apple-ios18.0-simulator` 编译步骤完成。完整原始日志和二进制 artifact 保留在 Codemagic/工单受控界面，不提交仓库。仓库只记录非敏感摘要与校验值。
 
 ## Apple 身份门禁
 

@@ -9,7 +9,7 @@
 | GitHub `main` 可 checkout | Repository admin | PASS：远端 `HEAD` 指向 `refs/heads/main`；仓库专用 Deploy Key 非 force 推送及 clean clone 自检均于 2026-08-27 通过 | 保持 Deploy Key 最小权限；后续协作启用分支保护 | 已解除 |
 | 分支保护 | Repository admin | 未配置/未验证 | `main` 禁止 force push/删除；后续有测试后要求评审与状态检查 | 协作合并 |
 | Codemagic 仓库连接 | Codemagic account owner | PASS：Personal Account app `6a8f35ff25a250a3a9686cb3` 已连接仓库，并载入 `main` 根目录 YAML | 保持仓库连接；首次 job 验证真实 clone 与 workflow | 已解除 |
-| Codemagic 首次 job | Codemagic account owner | PASS：build `6a8f37ab1f98ea6f9e4aa137` 在 commit `7ed4c29…` 上 49 秒完成；所有脚本步骤成功 | 下载并核对 `build/evidence/**`，补齐精确时间与非敏感工具链摘要 | 证据完整性 |
+| Codemagic 首次 job | Codemagic account owner | PASS：build `6a8f37ab1f98ea6f9e4aa137` 在 commit `7ed4c29…` 上 49 秒完成；artifact、工具链摘要和无签名状态均已核对 | 保留受控原始日志/artifact；后续重跑必须重新授权 | 已解除 |
 | Codemagic 成本 | Workspace owner | PASS（本次 job）：Personal Account 免费 macOS 使用量 `0 / 500`，未启用付费订阅；只授权一次最多 15 分钟的无签名任务 | 仅按已授权 workflow 手动启动一次；出现订阅/付费提示立即停止 | 已解除本次 job |
 | Apple membership/协议 | Apple Account Holder | 未验证 | 会员有效且最新协议已接受 | 真机签名/发布 |
 | Bundle ID | Apple Account Holder/Admin | 候选 `com.el549.vacuumcoverage` | explicit App ID 已确认/注册；冲突则先评审替代值 | 真机工程配置 |
@@ -48,10 +48,10 @@ PLAY-41 只允许步骤 1 中“确认/注册 explicit App ID”（由 Apple Adm
 
 - [x] GitHub 默认分支 `main` 可从 clean environment checkout。
 - [x] `bash Scripts/validate_bootstrap.sh` 在 clean checkout 通过。
-- [ ] Codemagic 已连接仓库，固定 workflow 对同一 commit 成功。
-- [ ] 证据页记录 Xcode、Swift、SDK、macOS、build ID/URL、commit 和结果。
+- [x] Codemagic 已连接仓库，固定 workflow 对同一 commit 成功。
+- [x] 证据页记录 Xcode、Swift、SDK、macOS、build ID/URL、commit 和结果。
 - [ ] Apple Team owner、Bundle ID 结果、最小角色与 secret store 已确认。
 - [ ] 三类 iPhone、两类吸尘器、支架、卡、测量和场地全部可用，或每个缺口具名到人并有到位时点/解除条件。
-- [ ] 费用、签名、TestFlight、App Store 与公开发布均无未授权动作。
+- [x] 费用、签名、TestFlight、App Store 与公开发布均无未授权动作。
 
 未全部勾选时，工单保持 `in_progress` 或 `blocked`，不得标记已完成或推动后续阶段。
