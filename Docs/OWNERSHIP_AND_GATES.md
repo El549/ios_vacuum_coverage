@@ -6,7 +6,7 @@
 
 | 门禁 | Accountable owner | 当前状态 | 解除条件 | 阻断范围 |
 |---|---|---|---|---|
-| GitHub `main` 可 checkout | Repository admin | 本地 root commit `d637eed7fd261b78c051a593c07c4586bcb9a716` 已验证；本任务无 GitHub 写凭据，远端仍为空 | 管理员从交付 bundle 推送 `main`；远端 `HEAD` 指向 `refs/heads/main`；匿名 clean clone + 自检成功 | 全部后续工作 |
+| GitHub `main` 可 checkout | Repository admin | PASS：远端 `HEAD` 指向 `refs/heads/main`；仓库专用 Deploy Key 非 force 推送及 clean clone 自检均于 2026-08-27 通过 | 保持 Deploy Key 最小权限；后续协作启用分支保护 | 已解除 |
 | 分支保护 | Repository admin | 未配置/未验证 | `main` 禁止 force push/删除；后续有测试后要求评审与状态检查 | 协作合并 |
 | Codemagic 仓库连接 | Codemagic team admin | 未连接/无法从本节点验证 | Codemagic app 能 clone `main` 并识别 YAML workflow | CI |
 | Codemagic 首次 job | Codemagic team admin | 未运行 | `ios-environment-gate` 在远端 commit 上成功，证据填写完整；确认未发布、未签名 | PLAY-41 完成 |
@@ -46,8 +46,8 @@ PLAY-41 只允许步骤 1 中“确认/注册 explicit App ID”（由 Apple Adm
 
 ## 4. PLAY-41 退出检查
 
-- [ ] GitHub 默认分支 `main` 可从 clean environment checkout。
-- [ ] `bash Scripts/validate_bootstrap.sh` 在 clean checkout 通过。
+- [x] GitHub 默认分支 `main` 可从 clean environment checkout。
+- [x] `bash Scripts/validate_bootstrap.sh` 在 clean checkout 通过。
 - [ ] Codemagic 已连接仓库，固定 workflow 对同一 commit 成功。
 - [ ] 证据页记录 Xcode、Swift、SDK、macOS、build ID/URL、commit 和结果。
 - [ ] Apple Team owner、Bundle ID 结果、最小角色与 secret store 已确认。

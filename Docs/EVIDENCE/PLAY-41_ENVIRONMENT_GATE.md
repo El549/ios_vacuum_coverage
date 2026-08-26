@@ -2,18 +2,19 @@
 
 ## 当前结论
 
-状态：**Blocked on external owners**。仓库工件已在 Linux 本地验证，但 GitHub 远端初始化、Codemagic clone/job、Apple 身份与实物矩阵必须由对应外部 owner 提供真实证据后才能改为 Passed。
+状态：**Blocked on external owners**。GitHub `main` 已初始化并通过远端 clean clone 自检；Codemagic clone/job、Apple 身份与实物矩阵仍必须由对应外部 owner 提供真实证据后才能改为 Passed。
 
 ## 仓库基线
 
 | 字段 | 记录 |
 |---|---|
 | Remote | `https://github.com/El549/ios_vacuum_coverage.git` |
-| Default branch | 本地 `main`；远端仍无 refs/HEAD |
-| Bootstrap commit | `d637eed7fd261b78c051a593c07c4586bcb9a716`（本地 root commit） |
-| Clean clone verifier | Repository admin / independent reviewer |
-| `validate_bootstrap.sh` | PASS，2026-08-27，Linux 5.15.0-142-generic x86_64 |
-| Remote write probe | BLOCKED：`git push --dry-run` 无可用 GitHub HTTPS credential；未执行真实 push |
+| Default branch | `main`；远端 `HEAD` 已验证指向 `refs/heads/main`，2026-08-27 |
+| Bootstrap commit | `d637eed7fd261b78c051a593c07c4586bcb9a716`（root commit） |
+| Published bootstrap baseline | `0b509ffe460df09d35f9925c3e816aeaee4a70dd` |
+| Clean clone verifier | Codex · 美国节点，仓库专用 Deploy Key |
+| `validate_bootstrap.sh` | PASS，本地与远端 clean clone，2026-08-27，Linux 5.15.0-142-generic x86_64 |
+| Remote write probe | PASS：dry-run 后执行非 force push；GitHub Deploy Key 指纹 `SHA256:v1cl42C/Ad3nSTiTEV10b36nWDIDi7f74eG19bKn/i8` |
 
 ## Codemagic 首次 job
 
